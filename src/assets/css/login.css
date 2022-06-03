@@ -1,0 +1,9 @@
+
+.login .logo{
+  height: 56px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(217, 218, 220),
+}
+.login .ant-input {
+  padding: 14px;
+}

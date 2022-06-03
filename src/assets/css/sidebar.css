@@ -1,0 +1,9 @@
+.sidebar .logo{
+  height: 64px;
+  text-align: center;
+  background-color: #1cbc54;
+  
+}
+.sidebar .sidebar__menu{
+  height: 100%;
+}
