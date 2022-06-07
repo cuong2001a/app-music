@@ -1,52 +1,32 @@
+import {Carousel, Col, Row} from "antd"
 import React from "react"
-import Slider from "react-slick"
-import {setting} from "../../constants/setting"
+import {LIST_CHART_MUSCIC} from "../../constants/listChartMusic"
+import {ListChartMusic} from "../../models/listChartMusic"
 
 const Home: React.FC = () => {
+  const onChange = (currentSlide: number) => {
+    console.log(currentSlide)
+  }
   return (
-    <div className="container-fluid mx-auto">
-      <div className="slider">
-        {/* <Carousel afterChange={onChange}>
-          <div>
-            <h3 style={contentStyle}>1</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>2</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>3</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>4</h3>
-          </div>
-        </Carousel> */}
-      </div>
-      <Slider {...setting}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
-        <div>
-          <h3>7</h3>
-        </div>
-        <div>
-          <h3>8</h3>
-        </div>
-      </Slider>
+    <div className="container-fluid mx-auto mt-4">
+      <h3 className="px-3">Bảng xếp hạng</h3>
+      <Carousel arrows={true} slidesToShow={5} afterChange={onChange}>
+        {LIST_CHART_MUSCIC?.map((item: ListChartMusic, index: number) => {
+          return (
+            <div className="d-flex flex-column px-3 mb-5">
+              <a href={item.url}>
+                <img className="w-100 rounded" src={item.images} alt={item.titleMusic} />
+              </a>
+              <p className="fw-bold text-dark fs-5 mb-0 ">{item.titleMusic}</p>
+              <p className="text-black-50 ">{item.author}</p>
+            </div>
+          )
+        })}
+      </Carousel>
+      <Row>
+        <Col span={12}></Col>
+        <Col span={12}></Col>
+      </Row>
     </div>
   )
 }
