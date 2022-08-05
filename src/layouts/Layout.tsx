@@ -7,14 +7,13 @@ import {Outlet} from "react-router-dom"
 const LayoutComponent: React.FC = () => {
   const {Content, Footer} = Layout
   return (
-    <Layout>
+    <Layout style={{overflow: "auto"}}>
       <Sidebar />
-      <Layout>
+      <Layout style={{height: "calc(100vh)", overflow: "hidden", position: "relative"}}>
         <HeaderComponent />
         <Content>
           <Outlet />
         </Content>
-        <Footer style={{textAlign: "center"}}>Ant Design ©2018 Created by Ant UED</Footer>
       </Layout>
     </Layout>
   )

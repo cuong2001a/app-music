@@ -1,5 +1,7 @@
 import {Carousel, Col, Row} from "antd"
 import React from "react"
+import MostlyPlayed from "../../components/Home/MostlyPlayed"
+import RecentlyAdd from "../../components/Home/RecentlyAdd"
 import {LIST_CHART_MUSCIC} from "../../constants/listChartMusic"
 import {ListChartMusic} from "../../models/listChartMusic"
 
@@ -13,7 +15,7 @@ const Home: React.FC = () => {
       <Carousel arrows={true} slidesToShow={5} afterChange={onChange}>
         {LIST_CHART_MUSCIC?.map((item: ListChartMusic, index: number) => {
           return (
-            <div className="d-flex flex-column px-3 mb-5">
+            <div key={index} className="d-flex flex-column px-3 mb-5">
               <a href={item.url}>
                 <img className="w-100 rounded" src={item.images} alt={item.titleMusic} />
               </a>
@@ -23,9 +25,13 @@ const Home: React.FC = () => {
           )
         })}
       </Carousel>
-      <Row>
-        <Col span={12}></Col>
-        <Col span={12}></Col>
+      <Row gutter={[24, 0]}>
+        <Col span={10}>
+          <RecentlyAdd />
+        </Col>
+        <Col span={14}>
+          <MostlyPlayed />
+        </Col>
       </Row>
     </div>
   )

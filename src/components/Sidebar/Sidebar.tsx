@@ -1,6 +1,6 @@
 import {Layout, Menu} from "antd"
 import React from "react"
-import {Link} from "react-router-dom"
+import { NavLink} from "react-router-dom"
 import Frame from "../../assets/icons/Frame"
 import {LIST_ROUTES} from "../../constants/listRoute"
 import {ListA} from "../../models"
@@ -24,7 +24,7 @@ const Sidebar: React.FC = () => {
           {LIST_ROUTES?.map((item: ListA, index: number) => {
             return (
               <Menu.Item icon={<item.icon />} key={index}>
-                <Link to={item.path}>{item.title}</Link>
+                <NavLink to={item.path}>{item.title}</NavLink>
               </Menu.Item>
             )
           })}

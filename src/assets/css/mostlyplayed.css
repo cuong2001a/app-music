@@ -1,0 +1,3 @@
+.list-played ::-webkit-scrollbar-thumb:active{
+    background: linear-gradient(left, #22ADD4, #1E98BA);
+}
